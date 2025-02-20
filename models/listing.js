@@ -29,7 +29,7 @@ const listingSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  category: {
+  Category: {
     type: String,
     enum: [
       "Trending",
@@ -41,6 +41,8 @@ const listingSchema = new Schema({
       "Camping",
       "Farms",
       "Arctic",
+      "Domes",
+      "Boats",
     ],
   },
 });

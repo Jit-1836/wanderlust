@@ -1,4 +1,4 @@
- <% layout("/layouts/boilerplate") %>
+<% layout("/layouts/boilerplate") %>
 <div class="row mt-3">
   <div class="col-8 offset-3">
     <h3><%= listing.title %></h3>
@@ -92,11 +92,11 @@
     <p><b>All Reviews</b></p>
     <div class="row">
       <% for(let review of listing.reviews) { %>
-      <div class=" card col-5 ms-3 mb-3 ">
+      <div class="card col-5 ms-3 mb-3">
         <div class="card-body">
           <h5 class="card-title">@<%= review.author.username %></h5>
           <p class="card-text"><%= review.comment %></p>
-          <p class="card-text"><%=review.rating %> stars</p>
+          <p class="car-text"><%=review.rating %> stars</p>
           <p class="starability-result card-text" data-rating="<%=review.rating %>">
           </p>
         </div>
@@ -108,28 +108,6 @@
           <button class="btn btn-sm btn-dark">Delete</button>
         </form>
       </div>
-
-
-      <!-- <div class="res2">
-      <div class=" card col-5 ms-3 mb-3">
-        <div class="card-body">
-          <h5 class="card-title">@<%= review.author.username %></h5>
-          <p class="card-text"><%= review.comment %></p>
-          <p class="card-text"><%=review.rating %> stars</p>
-          <p class="starability-result card-text" data-rating="<%=review.rating %>">
-          </p>
-        </div>
-        <form
-          action="/listings/<%= listing._id %>/reviews/<%= review._id%>?_method=DELETE"
-          class="mb-3"
-          method="post"
-        >
-          <button class="btn btn-sm btn-dark">Delete</button>
-        </form>
-      </div>
-    </div> -->
-     
-      
       <% } %>
     </div>
   </div>

@@ -97,8 +97,42 @@
         />
         <div class="invalid-feedback">location should be valid</div>
       </div>
-      <button class="btn btn-dark add-btn mt-3">Add</button>
+      <div class="dropdown">
+        <select
+          name="listing[Category]"
+          class="Category mt-2"
+        >
+          <option selected>category</option>
+          <option value="Trending">Trending</option>
+          <option value="Rooms">Rooms</option>
+          <option value="Iconic cities">Iconic cities</option>
+          <option value="Moutains">Moutains</option>
+          <option value="Castles">Castles</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Camping">Camping</option>
+          <option value="Farms">Farms</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Domes">Domes</option>
+          <option value="Boats">Boats</option>
+        </select>
+        <p>Your Category is :<span class="output"></span></p>
+      </div>
+      <button
+        class="btn btn-dark add-btn mt-3"
+        onclick="getOption()"
+      >
+        Add
+      </button>
+
       <br /><br />
     </form>
+    <script type="text/javascript">
+      function getOption() {
+        selectElement = document.querySelector(".Category");
+        output = selectElement.value;
+        console.log(output);
+        document.querySelector(".output").textContent = output;
+      }
+    </script>
   </div>
 </div>

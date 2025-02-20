@@ -1,3 +1,13 @@
+/* @media screen and (max-width: 300px) {
+  .res {
+    display: none;
+  }
+}
+@media screen and (min-width: 300px) {
+  .res2 {
+    display: none;
+  }
+} */
 body {
   font-family: "Plus Jakarta Sans", sans-serif !important;
   display: flex;
@@ -98,6 +108,7 @@ body {
 .add-btn {
   background-color: #fe424d !important;
   border: none !important;
+  padding: auto !important;
 }
 
 .edit-btn {
@@ -117,4 +128,15 @@ body {
 .show-card {
   padding-left: 0;
   padding-right: 0;
+}
+
+.Category {
+  background-color: #222222;
+  color: white;
+  border-radius: 10px;
+  padding: 6.5px;
+  text-align: center;
+}
+.f-info i {
+  color: #222222;
 }

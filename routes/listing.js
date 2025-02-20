@@ -1,9 +1,9 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
-const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 
+const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
@@ -41,5 +41,8 @@ router.get(
   isOwner,
   wrapAsync(listingController.editLisitng)
 );
+
+//Category route
+router.get("/Farms", wrapAsync(listingController.CategoryListing));
 
 module.exports = router;

@@ -10,6 +10,11 @@
       enctype="multipart/form-data"
     >
       <div class="mb-3">
+        <label
+          for="title"
+          class="form-label"
+          >Title</label
+        >
         <input
           type="text"
           class="form-control"
@@ -17,11 +22,7 @@
           value="<%= listing.title %>"
           required
         />
-        <label
-          for="title"
-          class="form-label"
-          >Title</label
-        >
+
         <div class="valid-feedback">Title looks good!</div>
       </div>
       <div class="mb-3">
@@ -44,7 +45,7 @@
           src="<%= originalImageUrl %>"
           alt=""
         />
-        <label
+        <!-- <label
           for="image"
           class="form-label"
           >Upload new image</label
@@ -53,7 +54,7 @@
           type="file"
           name="listing[image]"
           class="form-control"
-        />
+        /> -->
       </div>
 
       <div class="mb-3">
@@ -115,7 +116,40 @@
         />
         <div class="invalid-feedback">location should be valid</div>
       </div>
-      <button class="btn btn-dark edit-btn mt-3">Edit</button>
+      <div class="dropdown">
+        <select
+          name="listing[Category]"
+          class="Category mt-2"
+        >
+          <option selected>category</option>
+          <option value="Trending">Trending</option>
+          <option value="Rooms">Rooms</option>
+          <option value="Iconic cities">Iconic cities</option>
+          <option value="Moutains">Moutains</option>
+          <option value="Castles">Castles</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Camping">Camping</option>
+          <option value="Farms">Farms</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Domes">Domes</option>
+          <option value="Boats">Boats</option>
+        </select>
+        <p>Your Category is : <span class="output"></span></p>
+      </div>
+      <button
+        class="btn btn-dark edit-btn mt-3"
+        onclick="getOption()"
+      >
+        Edit
+      </button>
     </form>
+    <script type="text/javascript">
+      function getOption() {
+        selectElement = document.querySelector(".Category");
+        output = selectElement.value;
+        console.log(output);
+        document.querySelector(".output").textContent = output;
+      }
+    </script>
   </div>
 </div>

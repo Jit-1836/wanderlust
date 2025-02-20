@@ -35,6 +35,7 @@ module.exports.createListing = async (req, res, next) => {
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
   newListing.image = { url, filename };
+  newListing.category = req.body.Category;
   await newListing.save();
   req.flash("success", "new Listing Created!");
   res.redirect("/listings");
@@ -79,6 +80,17 @@ module.exports.destroyListing = async (req, res) => {
   } catch (error) {
     console.error("Error deleting listing:", error);
     req.flash("error", "Error deleting listing!");
+    res.redirect("/listings");
+  }
+};
+
+module.exports.CategoryListing = async (req, res) => {
+  try {
+    const farmsListings = await Listing.find({ Category: "Farms" });
+    res.render("listings/index.ejs", { farmsListings });
+  } catch (error) {
+    console.error("Error fetching Farms listings:", error);
+    req.flash("error", "Error fetching Farms listings");
     res.redirect("/listings");
   }
 };

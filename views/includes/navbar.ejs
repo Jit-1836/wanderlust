@@ -21,9 +21,46 @@
     padding: 0.5rem 3rem 0.5rem 3rem;
     font-size: 0.8rem;
   }
+
+  .bg-body-tertiary {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (min-width: 767px) {
+    .bg-body-tertiary {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .res-search {
+      display: none;
+    }
+  }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <!-- <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <form
+        class="d-flex"
+        role="search"
+      >
+        <input
+          class="form-control me-2 search-inp"
+          type="search"
+          placeholder="Search destinations"
+        />
+        <button
+          class="btn search-btn"
+          type="submit"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>Search
+        </button>
+      </form>
+    </div>
+  </nav> -->
+
   <div class="container-fluid">
     <a
       class="navbar-brand"
@@ -49,24 +86,29 @@
           >Explore</a
         >
       </div>
-      <div class="navbar-nav ms-auto">
+
+      <div class="navbar-nav ms-auto res-search">
         <form
           class="d-flex"
           role="search"
+          autocomplete="off"
         >
           <input
             class="form-control me-2 search-inp"
+            id="input-box"
             type="search"
             placeholder="Search destinations"
           />
           <button
-            class="btn search-btn"
-            type="submit"
+            class="btn search-btn search"
+            type="button"
           >
             <i class="fa-solid fa-magnifying-glass"></i>Search
           </button>
         </form>
+        <div class="result-box"></div>
       </div>
+
       <div class="navbar-nav ms-auto">
         <a
           class="nav-link"
@@ -94,4 +136,5 @@
       </div>
     </div>
   </div>
+  <script src="/views/includes/navbar.js"></script>
 </nav>
